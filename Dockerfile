@@ -6,16 +6,16 @@ MAINTAINER Carlos Sanz <carlos.sanzpenas@gmail.com>
 LABEL Name=tac_plus
 LABEL Version=1.0.0
 
-ADD http://www.pro-bono-publico.de/projects/src/DEVEL.201712190728.tar.bz2
+ADD http://www.pro-bono-publico.de/projects/src/DEVEL.201712190728.tar.bz2 /tac_plus.tar.bz2
 
 RUN apk update && \
     apk add build-base bzip2 perl perl-digest-md5 perl-ldap && \
-    tar -xjf /*.tar.bz2 && \
+    tar -xjf /tac_plus.tar.bz2 && \
     cd /PROJECTS && \
     ./configure --prefix=/tacacs && \
     make && \
     make install && \
-    rm -fr *.tar.bz2
+    rm -fr tac_plus.tar.bz2
 
 # Move to a clean, small image
 FROM alpine:3.7
