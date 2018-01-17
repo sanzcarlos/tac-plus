@@ -21,8 +21,7 @@ RUN apk update && \
 FROM alpine:3.7
 
 COPY --from=build /tacacs /tacacs
-# ADD tac_plus.cfg /etc/tac_plus/tac_plus.cfg
-COPY tac_plus.sample.cfg /etc/tac_plus/tac_plus.cfg
+ADD tac_plus.cfg /etc/tac_plus/tac_plus.cfg
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 
 EXPOSE 49
